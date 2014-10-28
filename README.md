@@ -1,6 +1,6 @@
-# Example using MongoLabs Part 1 - Restful API
+# Shopping List Review
 
-This is a starter project for Thinkful Unit 7 Lesson 3 assignment 1. It picks up from unit 3 but now uses express and is ready for Heroku deployment.
+This is a starter project for the Thinkful Shopping List Review.
 
 ## Installation
 
