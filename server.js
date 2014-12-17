@@ -2,8 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var myitems = require('./items');
+var mongoose = require('mongoose');
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
@@ -25,6 +26,16 @@ app.delete('/:id', myitems.delete);
 
 var port = process.env.PORT || 5000;
 app.listen(port, function () {
-	console.log('listening on '+port);
+	console.log('listening on '+ port);
+});
+
+mongoose.connect('mongodb://localhost');
+
+var db = mongoose.connection;
+db.on('error', function callback () {
+    console.error('connection error');
+});
+db.once('open', function callback () {
+    console.error('connection success');
 });
 
